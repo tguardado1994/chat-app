@@ -33,12 +33,16 @@
         <% end %>
     
       
-    <%= turbo_stream_from @single_room %>
-      <div id="messages">
-       <%= render @messages %>
-      </div>
-<%= render partial: "layouts/new_message_form" %>
+      <%# If @single_room is not nil %>
+      <% if @single_room %>
+        <%= turbo_stream_from @single_room %>
+          <div id="messages">
+          <%= render @messages %>
+          </div>
 
+
+        <%= render partial: "layouts/new_message_form" %>
+      <% end %>
 
 
     </div>

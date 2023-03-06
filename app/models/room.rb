@@ -18,8 +18,7 @@ class Room < ApplicationRecord
     def self.create_private_room(users, room_name)
       single_room = Room.create(name: room_name, is_private: true)
       users.each do |user|
-       p1 = Participant.create(user_id: user.id, room_id: single_room.id)
-debugger
+       Participant.create(user_id: user.id, room_id: single_room.id)
       end
       single_room
     end
